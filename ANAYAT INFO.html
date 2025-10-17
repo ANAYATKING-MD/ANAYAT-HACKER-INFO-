@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta property="og:title" content="ANAYAT-AI QR/Pair Code">
+    <meta property="og:description" content="QR-code and Pair-code linker for ANAYAT-AI bot.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/2nrSWv9.jpg">
+    <title>ANAYAT-AI PAIR WEB</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Graduate&family=Gruppo&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --light-bg-primary: #f8f9fa;
+            --light-bg-secondary: #ffffff;
+            --light-text-primary: #1a1a1a;
+            --light-text-secondary: #4a4a4a;
+            --light-accent: #0066ff;
+            --light-accent-glow: 0 0 15px rgba(0, 102, 255, 0.4);
+            --light-border: rgba(0, 0, 0, 0.1);
+            --light-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            --dark-bg-primary: #0f0f1a;
+            --dark-bg-secondary: #1a1a2a;
+            --dark-text-primary: #ffffff;
+            --dark-text-secondary: #b0b0b0;
+            --dark-accent: #00ccff;
+            --dark-accent-glow: 0 0 15px rgba(0, 204, 255, 0.6);
+            --dark-border: rgba(255, 255, 255, 0.1);
+            --dark-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            --transition: all 0.3s ease;
+            --border-radius: 16px;
+            --header-font-size: clamp(1.8rem, 6vw, 3rem);
+            --quote-font-size: clamp(0.9rem, 3vw, 1.1rem);
+            --button-font-size: clamp(0.9rem, 3vw, 1rem);
+        }
+        .light-theme { --bg-primary: var(--light-bg-primary); --bg-secondary: var(--light-bg-secondary);
+            --text-primary: var(--light-text-primary); --text-secondary: var(--light-text-secondary);
+            --accent: var(--light-accent); --accent-glow: var(--light-accent-glow);
+            --border: var(--light-border); --shadow: var(--light-shadow); }
+        .dark-theme { --bg-primary: var(--dark-bg-primary); --bg-secondary: var(--dark-bg-secondary);
+            --text-primary: var(--dark-text-primary); --text-secondary: var(--dark-text-secondary);
+            --accent: var(--dark-accent); --accent-glow: var(--dark-accent-glow);
+            --border: var(--dark-border); --shadow: var(--dark-shadow); }
+        * { margin: 0; padding: 0; box-sizing: border-box; transition: var(--transition); }
+        body { font-family: 'Graduate', sans-serif; background: var(--bg-primary); color: var(--text-primary);
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            min-height: 100vh; text-align: center; padding: 20px; overflow-x: hidden; }
+        .theme-toggle { position: fixed; top: 20px; right: 20px; width: 50px; height: 24px;
+            background: var(--bg-secondary); border-radius: 50px; padding: 2px; cursor: pointer;
+            box-shadow: var(--shadow); border: 1px solid var(--border); z-index: 1000; display: flex; align-items: center; }
+        .theme-toggle-thumb { width: 20px; height: 20px; background: var(--accent); border-radius: 50%;
+            position: absolute; transition: transform 0.3s ease; }
+        .light-theme .theme-toggle-thumb { transform: translateX(0); }
+        .dark-theme .theme-toggle-thumb { transform: translateX(26px); }
+        .container { background: var(--bg-secondary); backdrop-filter: blur(12px);
+            border: 1px solid var(--border); border-radius: var(--border-radius); box-shadow: var(--shadow);
+            padding: 30px; width: 90%; max-width: 800px; margin: 20px auto; }
+        .header { font-size: var(--header-font-size); font-weight: bold; color: var(--accent);
+            text-shadow: var(--accent-glow); margin-bottom: 20px; }
+        .button-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px; width: 100%; margin: 20px 0; }
+        .futuristic-button { background: var(--bg-secondary); color: var(--text-primary);
+            font-size: var(--button-font-size); text-transform: uppercase; font-weight: bold;
+            padding: 15px 20px; border: 1px solid var(--border); cursor: pointer; position: relative;
+            border-radius: 8px; display: flex; align-items: center; justify-content: center;
+            gap: 8px; text-decoration: none; box-shadow: var(--shadow); }
+        .futuristic-button:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,102,255,0.2);
+            border-color: var(--accent); }
+        .footer { font-size: clamp(0.8rem, 3vw, 1rem); color: var(--text-secondary);
+            background: var(--bg-secondary); text-align: center; padding: 15px 0; width: 100%;
+            position: fixed; bottom: 0; border-top: 1px solid var(--border); }
+    </style>
+</head>
+<body class="dark-theme">
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-sun"></i>
+        <i class="fas fa-moon"></i>
+        <div class="theme-toggle-thumb"></div>
+    </div>
+    <div class="container">
+        <div class="header">ANAYAT-AI</div>
+        <div class="button-container">
+            <a href="https://wa.me/923452401207" class="futuristic-button">
+                <i class="fas fa-user"></i> Owner Contact
+            </a>
+            <a href="https://github.com/ANAYAT-AI/ANAYAT-AI?tab=readme-ov-file" class="futuristic-button">
+                <i class="fab fa-github"></i> Bot Repo
+            </a>
+            <a href="https://whatsapp.com/channel/0029VbAm8LqL2ATpxklIct2g" class="futuristic-button">
+                <i class="fab fa-whatsapp"></i> WhatsApp Channel
+            </a>
+        </div>
+    </div>
+    <div class="footer">
+        Made with <i class="fas fa-heart" style="color: var(--accent);"></i> by <a href="https://whatsapp.com/channel/0029VbAm8LqL2ATpxklIct2g" class="footer-link">ANAYAT-AI</a> © 2025 - All rights reserved.
+    </div>
+</body>
+</html>
